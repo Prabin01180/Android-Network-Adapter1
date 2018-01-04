@@ -17,18 +17,13 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     private List<Movie> movies;
-    private int rowLayout;
     private Context context;
     public static final String IMAGE_URL_BASE_PATH = "http://image.tmdb.org/t/p/w342//";
 
-//    public MovieAdapter(List<Movie> movies, int rowLayout, Context context) {
-//        this.movies = movies;
-//        this.context = context;
-//    }
 
     public MovieAdapter(Context context, List<Movie> results) {
-        this.movies=movies;
-        this.context=context;
+        this.movies = results;
+        this.context = context;
     }
 
     //A view holder inner class where we get reference to the views in the layout using their ID
@@ -44,7 +39,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             super(v);
             moviesLayout = (LinearLayout) v.findViewById(R.id.movies_layout);
             movieImage = (ImageView) v.findViewById(R.id.movie_image);
-            movieTitle= (TextView) v.findViewById(R.id.movie_title);
+            movieTitle = (TextView) v.findViewById(R.id.movie_title);
             data = (TextView) v.findViewById(R.id.date);
             movieDescription = (TextView) v.findViewById(R.id.description);
             rating = (TextView) v.findViewById(R.id.rating);
@@ -55,8 +50,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(rowLayout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_movie, parent, false);
         return new MovieViewHolder(view);
     }
 

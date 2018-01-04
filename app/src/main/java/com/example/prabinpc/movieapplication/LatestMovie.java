@@ -1,16 +1,13 @@
 package com.example.prabinpc.movieapplication;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,7 +40,7 @@ public class LatestMovie extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         MovieApiService service = retrofit.create(MovieApiService.class);
-        service.getTopRatedMovies().enqueue(new Callback<MovieResponse>() {
+        service.getTopRatedMovies(API_KEY).enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 MovieAdapter movieAdapter = new MovieAdapter(getContext(), response.body().getResults());

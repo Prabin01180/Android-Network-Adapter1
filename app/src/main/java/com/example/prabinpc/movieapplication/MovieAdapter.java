@@ -17,7 +17,6 @@ import java.util.List;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     private List<Movie> movies;
-    private int rowLayout;
     private Context context;
     public static final String IMAGE_URL_BASE_PATH = "http://image.tmdb.org/t/p/w342//";
 
@@ -27,9 +26,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 //    }
 
     public MovieAdapter(Context context, List<Movie> results) {
-        this.movies=movies;
+        this.movies=results;
         this.context=context;
     }
+
+
 
     //A view holder inner class where we get reference to the views in the layout using their ID
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
@@ -55,8 +56,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(rowLayout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_movie, parent, false);
         return new MovieViewHolder(view);
     }
 

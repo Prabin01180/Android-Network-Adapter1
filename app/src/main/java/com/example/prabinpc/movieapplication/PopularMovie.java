@@ -1,16 +1,14 @@
 package com.example.prabinpc.movieapplication;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,13 +16,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+public class PopularMovie  extends Fragment{
 
-public class LatestMovie extends Fragment {
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String BASE_URL = "http://api.themoviedb.org/3/";
     private final static String API_KEY = "3d9f6ef05faa3072ee2caf7fb6870964";
-    private static Retrofit retrofit = null;
-    private RecyclerView mrecyclerView = null;
+    private static Retrofit retrofit;
+    private RecyclerView mrecyclerView;
+
 
     @Nullable
     @Override
@@ -43,7 +42,7 @@ public class LatestMovie extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         MovieApiService service = retrofit.create(MovieApiService.class);
-        service.getTopRatedMovies().enqueue(new Callback<MovieResponse>() {
+        service.getPopularMovies(API_KEY).enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 MovieAdapter movieAdapter = new MovieAdapter(getContext(), response.body().getResults());
@@ -57,6 +56,8 @@ public class LatestMovie extends Fragment {
             }
         });
     }
+
+
 
 
 }

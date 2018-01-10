@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NavigationDrawerActivity.start(this);
 
 //        toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -36,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
 //        tabLayout = (TabLayout) findViewById(R.id.tabs);
 //        tabLayout.setupWithViewPager(viewPager);
 //
-//        NavigationDrawerActivity.start(this);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new LatestMovie(),
-                "latest movie").commit();
+
+//        getSupportFragmentManager().beginTransaction().replace(R.id.container, new TopRatedMovie(),
+//                "latest movie").commit();
     }
 
 

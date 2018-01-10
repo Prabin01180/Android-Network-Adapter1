@@ -43,7 +43,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        getFragmentManager().beginTransaction().replace(R.id.container, new LatestMovie(),
+//        getFragmentManager().beginTransaction().replace(R.id.container, new TopRatedMovie(),
 //               "latest movie").commit();
 
     }
@@ -88,11 +88,14 @@ public class NavigationDrawerActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-            getFragmentManager().beginTransaction().replace(R.id.container, new Login(), "login").commit();
-        } else if (id == R.id.nav_gallery) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new LatestMovie(),"Movie").commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new Login(), "login").commit();
+        } else if (id == R.id.nav_movie) {
+            //Handle Top Rated Movie
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new TopRatedMovie(),"Top Rated Movie").commit();
 
         } else if (id == R.id.nav_slideshow) {
+            //Handle Popular Movies
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new PopularMovie(),"Top Rated Movie").commit();
 
         } else if (id == R.id.nav_manage) {
 

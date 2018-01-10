@@ -98,6 +98,7 @@ public class NavigationDrawerActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new PopularMovie(),"Top Rated Movie").commit();
 
         } else if (id == R.id.nav_manage) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container,new UpcomingMovie(),"Upcoming Movie");
 
         } else if (id == R.id.nav_share) {
 

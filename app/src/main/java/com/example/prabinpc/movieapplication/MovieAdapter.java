@@ -20,14 +20,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private Context context;
     public static final String IMAGE_URL_BASE_PATH = "http://image.tmdb.org/t/p/w342//";
 
-//    public MovieAdapter(List<Movie> movies, int rowLayout, Context context) {
-//        this.movies = movies;
-//        this.context = context;
-//    }
 
     public MovieAdapter(Context context, List<Movie> results) {
+<<<<<<< HEAD
         this.movies=results;
         this.context=context;
+=======
+        this.movies = results;
+        this.context = context;
+>>>>>>> 39ccf8304f6a2af8ba219452cd8822948e519269
     }
 
 
@@ -45,7 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             super(v);
             moviesLayout = (LinearLayout) v.findViewById(R.id.movies_layout);
             movieImage = (ImageView) v.findViewById(R.id.movie_image);
-            movieTitle= (TextView) v.findViewById(R.id.movie_title);
+            movieTitle = (TextView) v.findViewById(R.id.movie_title);
             data = (TextView) v.findViewById(R.id.date);
             movieDescription = (TextView) v.findViewById(R.id.description);
             rating = (TextView) v.findViewById(R.id.rating);

@@ -1,14 +1,17 @@
 package com.example.prabinpc.movieapplication;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD:app/src/main/java/com/example/prabinpc/movieapplication/TopRatedMovie.java
 import android.support.v4.app.Fragment;
+=======
+>>>>>>> 39ccf8304f6a2af8ba219452cd8822948e519269:app/src/main/java/com/example/prabinpc/movieapplication/LatestMovie.java
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -16,7 +16,7 @@ public class ProjectDetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details);
         mMovieDescription = findViewById(R.id.project_details_movie_description);
-        movies =(Movie) getIntent().getExtras().getSerializable("movies");
+        movies =(Movie) getIntent().getSerializableExtra("Movie");
         mMovieDescription.setText(movies.getTitle());
         Toast.makeText(this,"We are in Movie Details Page",Toast.LENGTH_LONG).show();
     }

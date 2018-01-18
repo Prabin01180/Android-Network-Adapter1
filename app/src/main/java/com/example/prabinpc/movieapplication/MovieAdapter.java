@@ -17,8 +17,8 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private static List<Movie> movies;
-    private static Context context;
+    private List<Movie> movies;
+    private Context context;
     public static final String IMAGE_URL_BASE_PATH = "http://image.tmdb.org/t/p/w342//";
 
 
@@ -31,10 +31,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
         LinearLayout moviesLayout;
         TextView movieTitle;
-//        TextView data;
+        //        TextView data;
         TextView movieDescription;
-//        TextView rating;
+        //        TextView rating;
         ImageView movieImage;
+
         public MovieViewHolder(View v) {
             super(v);
             moviesLayout = (LinearLayout) v.findViewById(R.id.movies_layout);
@@ -43,15 +44,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 //            data = (TextView) v.findViewById(R.id.date);
             movieDescription = (TextView) v.findViewById(R.id.description);
 //            rating = (TextView) v.findViewById(R.id.rating);
-            moviesLayout.setOnClickListener(new View.OnClickListener() {
-                int position;
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, ProjectDetailsActivity.class);
-                    intent.putExtra("Movie",movies.get(position).getTitle());
-                    context.startActivity(intent);
-                }
-            });
         }
     }
 
@@ -71,15 +63,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 .into(holder.movieImage);
         holder.movieTitle.setText(movies.get(position).getTitle());
         holder.movieDescription.setText(movies.get(position).getOverview());
-//      holder.rating.setText(movies.get(position).getVoteAverage().toString());
-
-//        holder.movieTitle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-
+        holder.moviesLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProjectDetailsActivity.class);
+                intent.putExtra("Movie", movies.get(position));
+                context.startActivity(intent);
+            }
+        });
     }
 
 

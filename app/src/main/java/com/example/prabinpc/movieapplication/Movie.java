@@ -2,9 +2,10 @@ package com.example.prabinpc.movieapplication;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Movie {
+public class Movie implements Serializable {
     @SerializedName("poster_path")
     private String posterPath;
     @SerializedName("overview")

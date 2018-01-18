@@ -1,6 +1,7 @@
 package com.example.prabinpc.movieapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,42 +17,41 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private List<Movie> movies;
-    private Context context;
+    private static List<Movie> movies;
+    private static Context context;
     public static final String IMAGE_URL_BASE_PATH = "http://image.tmdb.org/t/p/w342//";
 
 
     public MovieAdapter(Context context, List<Movie> results) {
-<<<<<<< HEAD
-        this.movies=results;
-        this.context=context;
-=======
         this.movies = results;
         this.context = context;
->>>>>>> 39ccf8304f6a2af8ba219452cd8822948e519269
     }
-
-
 
     //A view holder inner class where we get reference to the views in the layout using their ID
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
         LinearLayout moviesLayout;
         TextView movieTitle;
-        TextView data;
+//        TextView data;
         TextView movieDescription;
-        TextView rating;
+//        TextView rating;
         ImageView movieImage;
-
         public MovieViewHolder(View v) {
             super(v);
             moviesLayout = (LinearLayout) v.findViewById(R.id.movies_layout);
             movieImage = (ImageView) v.findViewById(R.id.movie_image);
             movieTitle = (TextView) v.findViewById(R.id.movie_title);
-            data = (TextView) v.findViewById(R.id.date);
+//            data = (TextView) v.findViewById(R.id.date);
             movieDescription = (TextView) v.findViewById(R.id.description);
-            rating = (TextView) v.findViewById(R.id.rating);
-
-
+//            rating = (TextView) v.findViewById(R.id.rating);
+            moviesLayout.setOnClickListener(new View.OnClickListener() {
+                int position;
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ProjectDetailsActivity.class);
+                    intent.putExtra("Movie",movies.get(position).getTitle());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
@@ -71,7 +71,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 .into(holder.movieImage);
         holder.movieTitle.setText(movies.get(position).getTitle());
         holder.movieDescription.setText(movies.get(position).getOverview());
-        holder.rating.setText(movies.get(position).getVoteAverage().toString());
+//      holder.rating.setText(movies.get(position).getVoteAverage().toString());
+
+//        holder.movieTitle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
     }
 
@@ -80,4 +87,5 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public int getItemCount() {
         return movies.size();
     }
+
 }

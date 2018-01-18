@@ -10,6 +10,7 @@ public class MovieResponse{
     private  int page;
     @SerializedName("results")
     public List<Movie> results;
+
     public List<Movie> getResults(){
         return results;
     }

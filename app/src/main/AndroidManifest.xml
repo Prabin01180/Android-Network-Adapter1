@@ -22,7 +22,11 @@
         <activity
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/MyMaterialTheme.NoActionBar"></activity>
+            android:theme="@style/MyMaterialTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ProjectDetailsActivity">
+
+        </activity>
     </application>
 
 </manifest>

@@ -3,13 +3,11 @@ package com.example.prabinpc.movieapplication;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UpcomingMovie extends Fragment {
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String BASE_URL = "http://api.themoviedb.org/3/";
-    private final static String API_KEY = "3d9f6ef05faa3072ee2caf7fb6870964";
+    private final static String API_KEY = "a31c5b3755c829e04cd4b0ce6f572910";
     private static Retrofit retrofit = null;
     private RecyclerView mrecyclerView = null;
 
@@ -46,7 +44,7 @@ public class UpcomingMovie extends Fragment {
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 MovieAdapter movieAdapter = new MovieAdapter(getContext(), response.body().getResults());
                 mrecyclerView.setAdapter(movieAdapter);
-                mrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                mrecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
             }
 
             @Override
